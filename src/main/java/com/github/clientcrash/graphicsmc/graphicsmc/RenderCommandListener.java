@@ -2,6 +2,9 @@ package com.github.clientcrash.graphicsmc.graphicsmc;
 
 import com.github.clientcrash.graphicsmc.graphicsmc.GraphicsMc;
 import com.github.clientcrash.graphicsmc.graphicsmc.renderers.ImageRenderer;
+import com.github.clientcrash.graphicsmc.graphicsmc.renderers.RockWebcamRenderer;
+import com.github.clientcrash.graphicsmc.graphicsmc.renderers.SmoothVideoRender;
+import javafx.scene.transform.Scale;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +15,10 @@ import org.bukkit.map.*;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.nio.Buffer;
+import java.util.ArrayList;
 
 public class RenderCommandListener implements CommandExecutor {
 
@@ -37,8 +43,35 @@ public class RenderCommandListener implements CommandExecutor {
                 break;
             case None:
                 break;
+            case Cam:
+                mv.setScale(MapView.Scale.FARTHEST);
+                mv.addRenderer(new RockWebcamRenderer());
+            case Stream:
+                try {
+                    mv.setScale(MapView.Scale.FARTHEST);
+                    ArrayList<BufferedImage> imgl = getImagesWithEndingInDir("./png",".png");
+                    mv.addRenderer(new SmoothVideoRender(imgl,0,Integer.parseInt(args[1])));
+                } catch (Exception e) {
+                    sender.sendMessage(e.getMessage());
+                }
+
 
         }
         return true;
+    }
+    public ArrayList<BufferedImage> getImagesWithEndingInDir(String path,String end){
+        File dir = new File(".");
+        File [] files = dir.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(end);
+            }
+        });
+        ArrayList<BufferedImage> imgl = new ArrayList<BufferedImage>();
+        for (File f : files) {
+
+            imgl.add(ImageIO.read(new File(f)));
+        }
+        return imgl;
     }
 }

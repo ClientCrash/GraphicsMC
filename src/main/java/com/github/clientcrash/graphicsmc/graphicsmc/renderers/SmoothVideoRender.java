@@ -6,12 +6,13 @@ import org.bukkit.map.MapRenderer;
 import org.bukkit.map.MapView;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class SmoothVideoRender extends MapRenderer {
-    BufferedImage[] frames;
+    ArrayList<BufferedImage> frames;
     int currentIndex = 0;
     int ticksBetweenFrames = 0;
-    public SmoothVideoRender(BufferedImage[] frames,int startindex,int ticksBetweenFrames){
+    public SmoothVideoRender(ArrayList<BufferedImage> frames, int startindex, int ticksBetweenFrames){
         this.frames = frames;
         this.currentIndex = startindex;
         this.ticksBetweenFrames = ticksBetweenFrames;
@@ -25,7 +26,7 @@ public class SmoothVideoRender extends MapRenderer {
             currentTick=0;
             currentIndex++;
         }
-        if(currentIndex+1 >= frames.length){currentIndex = 0;}
-        canvas.drawImage(0,0, frames[currentIndex]);
+        if(currentIndex+1 >= frames.size()){currentIndex = 0;}
+        canvas.drawImage(0,0, frames.get(currentIndex));
     }
 }
