@@ -47,20 +47,18 @@ public class RenderCommandListener implements CommandExecutor {
                 mv.setScale(MapView.Scale.FARTHEST);
                 mv.addRenderer(new RockWebcamRenderer());
             case Stream:
-                try {
                     mv.setScale(MapView.Scale.FARTHEST);
                     ArrayList<BufferedImage> imgl = getImagesWithEndingInDir("./png",".png");
                     mv.addRenderer(new SmoothVideoRender(imgl,0,Integer.parseInt(args[1])));
-                } catch (Exception e) {
-                    sender.sendMessage(e.getMessage());
-                }
+
+                break;
 
 
         }
         return true;
     }
     public ArrayList<BufferedImage> getImagesWithEndingInDir(String path,String end){
-        File dir = new File(".");
+        File dir = new File(path);
         File [] files = dir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
@@ -69,8 +67,11 @@ public class RenderCommandListener implements CommandExecutor {
         });
         ArrayList<BufferedImage> imgl = new ArrayList<BufferedImage>();
         for (File f : files) {
+                try {
+                    imgl.add(ImageIO.read(f));
+                }catch(Exception e){
 
-            imgl.add(ImageIO.read(new File(f)));
+                }
         }
         return imgl;
     }
