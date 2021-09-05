@@ -1,7 +1,7 @@
 # GRAPHICS MC
 *GMC*
 ## GraphicsMC is a plugin for rendering images and other things on maps.
-###Commands
+### Commands
 `/gmcmode <MODE>`  
 Change the gmc mode to : 
 - `image` for images
