@@ -1,0 +1,16 @@
+name: GraphicsMc
+version: '${project.version}'
+main: com.github.clientcrash.graphicsmc.graphicsmc.GraphicsMc
+api-version: 1.17
+authors: [ ClientCrash ]
+description: A minecraft graphics plugin.
+website: github.com/clientcrash/
+commands:
+  gmcmode:
+    description: Switch between render modes
+    usage: /gmcmode <mode>
+    permission: graphicsmc.render_modes
+  gmcrender:
+    description: set map to render.
+    usage: /gmcrender <map_id>
+    permission: graphicsmc.render
