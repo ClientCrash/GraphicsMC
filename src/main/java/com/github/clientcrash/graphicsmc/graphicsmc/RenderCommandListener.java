@@ -48,7 +48,7 @@ public class RenderCommandListener implements CommandExecutor {
                 mv.addRenderer(new RockWebcamRenderer());
             case Stream:
                     mv.setScale(MapView.Scale.FARTHEST);
-                    ArrayList<BufferedImage> imgl = getImagesWithEndingInDir("./png",".png");
+                    ArrayList<BufferedImage> imgl = getImagesWithEndingInDir(args[2],args[3]);
                     mv.addRenderer(new SmoothVideoRender(imgl,0,Integer.parseInt(args[1])));
 
                 break;
