@@ -3,7 +3,7 @@ package com.github.clientcrash.graphicsmc.graphicsmc;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class GraphicsMc extends JavaPlugin {
-    public static RenderMode mode = RenderMode.Test;
+    public static RenderMode mode = RenderMode.None;
     @Override
     public void onEnable() {
         this.getLogger().info("GraphicsMC enabled.");
