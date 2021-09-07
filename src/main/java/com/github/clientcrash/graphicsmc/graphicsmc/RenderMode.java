@@ -5,5 +5,6 @@ public enum RenderMode {
     Cam,
     Stream,
     Test,
-    None
+    None,
+    Frames
 }

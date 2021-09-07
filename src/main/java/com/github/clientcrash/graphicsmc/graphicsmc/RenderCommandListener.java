@@ -1,15 +1,12 @@
 package com.github.clientcrash.graphicsmc.graphicsmc;
 
-import com.github.clientcrash.graphicsmc.graphicsmc.GraphicsMc;
 import com.github.clientcrash.graphicsmc.graphicsmc.renderers.ImageRenderer;
 import com.github.clientcrash.graphicsmc.graphicsmc.renderers.RockWebcamRenderer;
-import com.github.clientcrash.graphicsmc.graphicsmc.renderers.SmoothVideoRender;
-import javafx.scene.transform.Scale;
+import com.github.clientcrash.graphicsmc.graphicsmc.renderers.FrameVideoRender;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.map.*;
 
 import javax.imageio.ImageIO;
@@ -17,7 +14,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.ArrayList;
 
 public class RenderCommandListener implements CommandExecutor {
@@ -46,10 +42,10 @@ public class RenderCommandListener implements CommandExecutor {
             case Cam:
                 mv.setScale(MapView.Scale.FARTHEST);
                 mv.addRenderer(new RockWebcamRenderer());
-            case Stream:
+            case Frames:
                     mv.setScale(MapView.Scale.FARTHEST);
                     ArrayList<BufferedImage> imgl = getImagesWithEndingInDir(args[2],args[3]);
-                    mv.addRenderer(new SmoothVideoRender(imgl,0,Integer.parseInt(args[1])));
+                    mv.addRenderer(new FrameVideoRender(imgl,0,Integer.parseInt(args[1])));
 
                 break;
 

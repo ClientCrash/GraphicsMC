@@ -8,11 +8,11 @@ import org.bukkit.map.MapView;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class SmoothVideoRender extends MapRenderer {
+public class FrameVideoRender extends MapRenderer {
     ArrayList<BufferedImage> frames;
     int currentIndex = 0;
     int ticksBetweenFrames = 0;
-    public SmoothVideoRender(ArrayList<BufferedImage> frames, int startindex, int ticksBetweenFrames){
+    public FrameVideoRender(ArrayList<BufferedImage> frames, int startindex, int ticksBetweenFrames){
         this.frames = frames;
         this.currentIndex = startindex;
         this.ticksBetweenFrames = ticksBetweenFrames;

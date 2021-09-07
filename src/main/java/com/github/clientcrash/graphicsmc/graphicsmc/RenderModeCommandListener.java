@@ -35,6 +35,9 @@ public class RenderModeCommandListener implements CommandExecutor {
             case("stream"):
                 GraphicsMc.mode = RenderMode.Stream;
                 break;
+            case("frames"):
+                GraphicsMc.mode = RenderMode.Frames;
+                break;
         }
         return true;
     }
