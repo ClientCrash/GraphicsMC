@@ -40,8 +40,9 @@ public class RenderCommandListener implements CommandExecutor {
             case None:
                 break;
             case Cam:
-                mv.setScale(MapView.Scale.FARTHEST);
-                mv.addRenderer(new RockWebcamRenderer());
+                sender.sendMessage("NOT SUPPORTED");
+                break;
+                /*mv.addRenderer(new RockWebcamRenderer());*/
             case Frames:
                     mv.setScale(MapView.Scale.FARTHEST);
                     ArrayList<BufferedImage> imgl = getImagesWithEndingInDir(args[2],args[3]);
