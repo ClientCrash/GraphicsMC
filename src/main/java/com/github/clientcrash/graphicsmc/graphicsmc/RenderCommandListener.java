@@ -46,6 +46,9 @@ public class RenderCommandListener implements CommandExecutor {
             case Frames:
                     mv.setScale(MapView.Scale.FARTHEST);
                     ArrayList<BufferedImage> imgl = getImagesWithEndingInDir(args[2],args[3]);
+                    for(MapRenderer r : mv.getRenderers()){
+                        mv.removeRenderer(r);
+                    }
                     mv.addRenderer(new FrameVideoRender(imgl,0,Integer.parseInt(args[1])));
 
                 break;
