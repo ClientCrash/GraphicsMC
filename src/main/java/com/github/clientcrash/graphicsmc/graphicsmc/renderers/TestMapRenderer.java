@@ -12,6 +12,7 @@ public class TestMapRenderer extends MapRenderer {
             for (int y = 25; y < 50; y++) {
                 canvas.setPixel(x, y, MapPalette.RED);
                 canvas.drawText(15, 15, MinecraftFont.Font, "TEST RENDERER");
+                canvas.drawText(30,30,MinecraftFont.Font,"id:"+map.getId());
             }
         }
     }

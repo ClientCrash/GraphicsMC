@@ -1,7 +1,6 @@
 package com.github.clientcrash.graphicsmc.graphicsmc;
 
 import com.github.clientcrash.graphicsmc.graphicsmc.renderers.ImageRenderer;
-import com.github.clientcrash.graphicsmc.graphicsmc.renderers.RockWebcamRenderer;
 import com.github.clientcrash.graphicsmc.graphicsmc.renderers.FrameVideoRender;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
