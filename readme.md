@@ -1,5 +1,5 @@
 # GRAPHICS MC
-*GMC*
+
 ### Commands
 `/gmcmode <MODE>`  
 Change the gmc mode to : 
@@ -16,5 +16,6 @@ Render a specific map in the current mode with some parameters.
 ### Examples
 `/gmcmode image`  Change into image mode  
 `/gmcrender 2 IMG.png` Render *IMG.png* on map with id 2.
+
 
 
