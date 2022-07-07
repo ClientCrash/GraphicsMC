@@ -15,6 +15,8 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+
 public class RenderCommandListener implements CommandExecutor {
 
     @Override
@@ -44,7 +46,7 @@ public class RenderCommandListener implements CommandExecutor {
                 /*mv.addRenderer(new RockWebcamRenderer());*/
             case Frames:
                     mv.setScale(MapView.Scale.FARTHEST);
-                    ArrayList<BufferedImage> imgl = getImagesWithEndingInDir(args[2],args[3]);
+                    ArrayList<BufferedImage> imgl = BufferdImageHelper.getImagesWithEndingInDir(args[2],args[3]);
                     for(MapRenderer r : mv.getRenderers()){
                         mv.removeRenderer(r);
                     }
@@ -56,22 +58,5 @@ public class RenderCommandListener implements CommandExecutor {
         }
         return true;
     }
-    public ArrayList<BufferedImage> getImagesWithEndingInDir(String path,String end){
-        File dir = new File(path);
-        File [] files = dir.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(end);
-            }
-        });
-        ArrayList<BufferedImage> imgl = new ArrayList<BufferedImage>();
-        for (File f : files) {
-                try {
-                    imgl.add(ImageIO.read(f));
-                }catch(Exception e){
 
-                }
-        }
-        return imgl;
-    }
 }
