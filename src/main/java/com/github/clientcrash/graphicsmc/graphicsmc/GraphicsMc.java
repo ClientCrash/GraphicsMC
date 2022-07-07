@@ -7,6 +7,7 @@ public final class GraphicsMc extends JavaPlugin {
     @Override
     public void onEnable() {
         this.getLogger().info("GraphicsMC enabled.");
+        this.getLogger().info("Frame display will not work correctly with papermc.");
         this.getCommand("gmcmode").setExecutor(new RenderModeCommandListener());
 
         this.getCommand("gmcrender").setExecutor(new RenderCommandListener());
