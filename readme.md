@@ -15,7 +15,9 @@ Render a specific map in the current mode with some parameters.
 
 ### Examples
 `/gmcmode image`  Change into image mode  
-`/gmcrender 2 IMG.png` Render *IMG.png* on map with id 2.
+`/gmcrender 2 IMG.png` Render *IMG.png* on map with id 2.  
+`/gmcmode frames` Change into frames mode   
+`/gmcrender <ticks between frames> <directory (from server jar)> <file extension of the images>`
 
 
 
