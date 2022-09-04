@@ -1,4 +1,5 @@
 # GRAPHICS MC
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/clientcrash/GraphicsMC/Java%20CI%20with%20Maven?style=flat-square)
 
 ### Commands
 `/gmcmode <MODE>`  
